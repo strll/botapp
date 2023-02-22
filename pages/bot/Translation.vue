@@ -1,20 +1,14 @@
 <template>
 	<view>
-		<view>
-			<view>
-				<input v-model="msg" placeholder="请输入查询的单词"></input>
-
-
-				<div class="center">
-					<button type="primary" @click="getmsg()">查询</button>
-				</div>
-			</view>
-
-			{{remsg}}
-
-
+		<view class="searchView">
+			<div class="searchBox">
+				<input v-model="msg" placeholder="请输入查询的单词">
+				<button type="primary" @click="getmsg()">查询</button>
+			</div>
 		</view>
-
+		<main>
+			{{remsg}}
+		</main>
 	</view>
 </template>
 

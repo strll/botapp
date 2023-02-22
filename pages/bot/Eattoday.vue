@@ -1,0 +1,56 @@
+<template>
+	<view>
+		<div class="center">
+			<button type="primary" @click="get()">Roll!</button>
+		</div>
+		<view v-text="showmsg"></view>
+		<image :src="url"></image>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				showmsg: "",
+				msg: "",
+				qq: "",
+				url: ""
+			}
+		},
+		methods: {
+			// "message": " 熟鸡肉",
+			//        "qq": "†穆尔Moore†(2590892290)",
+			//        "url": "http://43.142.125.197:9000/bot/2023/01/02/2b0fdf77d3ce42f1867669f299fc032f",
+			async get() {
+				this.msg = "",
+					this.qq = "",
+					this.url = "",
+					this.showmsg = ""
+				uni.request({
+					url: "http://150.158.77.254:9991/bot/Eattoday",
+					success: ref => {
+						this.msg = ref.data.data.message
+						this.qq = ref.data.data.qq,
+							this.url = ref.data.data.url,
+							this.showmsg = "要不试试" + ref.data.data.qq + "推荐的" + ref.data.data.message
+					}
+				})
+			},
+
+			onBackPress(event) {
+				uni.navigateTo({
+					url: "/pages/alltest/alltest"
+				})
+				return true;
+			},
+		}
+	}
+</script>
+
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+</style>

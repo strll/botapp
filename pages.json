@@ -1,0 +1,95 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "这是登陆页面"
+			}
+		},
+		{
+			"path": "pages/alltest/alltest",
+			"style": {
+				"navigationBarTitleText": "这是功能的页面"
+			}
+		}, {
+			"path": "pages/bot/AccountInfo",
+			"style": {
+				"navigationBarTitleText": "这是聊天页面",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/Eattoday",
+			"style": {
+				"navigationBarTitleText": "来roll一个食物(大概)吧",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/Baidu",
+			"style": {
+				"navigationBarTitleText": "百度一下你就知道",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/News",
+			"style": {
+				"navigationBarTitleText": "这是今天的新闻",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/NowWeather",
+			"style": {
+				"navigationBarTitleText": "看一下今天的天气吧",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/CartoonNews",
+			"style": {
+				"navigationBarTitleText": "这是动漫新闻哦",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/bot/HistoryTody",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/bot/Song",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/Translation",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/bot/WbTop10",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

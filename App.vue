@@ -17,6 +17,6 @@
 	@import "colorui/icon.css";
 	@import "static/css/index-app.css";
 	@import "static/css/chatPage.css";
-	@import "static/css/searchPage.scss";
+	@import "static/css/searchPage.css";
 	/*每个页面公共css */
 </style>

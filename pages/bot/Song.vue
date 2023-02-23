@@ -14,7 +14,7 @@
 		<view>
 			<view v-text="songer" class="center"></view>
 
-			<image :src="pic"></image>
+			<image :src="pic" class="center"></image>
 		</view>
 		<view class="center">
 

@@ -66,9 +66,26 @@
 		},
 
 		onBackPress(event) {
-			uni.navigateTo({
-				url: "/pages/index/index"
-			})
+
+			uni.showModal({
+				title: '提示',
+				content: '你是否要登出当前帐号',
+				success: function(res) {
+					if (res.confirm) {
+						uni.setStorageSync("login", false);
+						uni.navigateTo({
+							url: "/pages/index/index"
+						})
+
+					} else if (res.cancel) {
+
+					}
+				}
+			});
+
+
+
+
 			return true;
 		},
 

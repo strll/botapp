@@ -7,9 +7,13 @@
 
 
 		<view v-for="objs in list">
-			<view v-text="objs.title" class="mytext"></view>
+			<!-- 	<view v-text="objs.title" class="mytext"></view> -->
+
+			<u--text prefixIcon="zhihu" iconStyle="font-size: 19px" :text="objs.title"></u--text>
+
 			<view v-for=" obj in objs.img" class="myimg">
-				<image :src="obj"></image>
+				<u--image :showLoading="true" :src="obj"></u--image>
+
 			</view>
 
 

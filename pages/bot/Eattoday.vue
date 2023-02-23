@@ -4,7 +4,9 @@
 			<button type="primary" @click="get()">Roll!</button>
 		</div>
 		<view v-text="showmsg"></view>
-		<image :src="url"></image>
+
+		<image :src="myurl"></image>
+
 	</view>
 </template>
 
@@ -15,7 +17,7 @@
 				showmsg: "",
 				msg: "",
 				qq: "",
-				url: ""
+				myurl: ""
 			}
 		},
 		methods: {
@@ -25,15 +27,16 @@
 			async get() {
 				this.msg = "",
 					this.qq = "",
-					this.url = "",
+					this.myurl = "",
 					this.showmsg = ""
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/Eattoday",
 					success: ref => {
 						this.msg = ref.data.data.message
 						this.qq = ref.data.data.qq,
-							this.url = ref.data.data.url,
+							this.myurl = ref.data.data.url,
 							this.showmsg = "要不试试" + ref.data.data.qq + "推荐的" + ref.data.data.message
+
 					}
 				})
 			},

@@ -19,6 +19,8 @@
 
 		</view>
 		<view class="button" @click="login">登录</view>
+		<u--text type="primary" text="注册" @click="gotoRegister()" align="right"></u--text>
+		<u--text type="primary" text="忘记密码" @click="gotoChange_Password()" align="right"></u--text>
 	</view>
 
 </template>
@@ -37,6 +39,17 @@
 		},
 
 		methods: {
+			gotoRegister() {
+				uni.navigateTo({
+					url: '/pages/register/register'
+				});
+			},
+			gotoChange_Password() {
+				uni.navigateTo({
+					url: '/pages/change_Password/change_Password'
+				});
+			},
+
 			go() {
 
 				if (uni.getStorageSync("login")) {

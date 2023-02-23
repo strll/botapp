@@ -1,11 +1,19 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	// 如果您是通过uni_modules形式引入uView，可以忽略此配置
+	"easycom": {
+		"^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [
+
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "这是登陆页面"
 			}
 		},
+
+
 		{
 			"path": "pages/alltest/alltest",
 			"style": {
@@ -57,7 +65,7 @@
 		{
 			"path": "pages/bot/HistoryTody",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "历史上的今天",
 				"enablePullDownRefresh": false
 			}
 
@@ -65,27 +73,45 @@
 		{
 			"path": "pages/bot/Song",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "搜索歌曲",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/bot/Translation",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "翻译页面",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/bot/WbTop10",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "微博热搜",
 				"enablePullDownRefresh": false
 			}
 
 		}
 
-	],
+		, {
+			"path": "pages/change_Password/change_Password",
+			"style": {
+				"navigationBarTitleText": "这是修改密码界面",
+				"enablePullDownRefresh": false
+			}
+		}
+
+
+	    ,{
+            "path" : "pages/register/register",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

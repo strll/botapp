@@ -23,7 +23,7 @@
 						<!-- <image class="chat-img margin-left" src="../../static/..." mode="aspectFill" ></image> -->
 					</view>
 					<!-- 机器人消息 -->
-					<view v-if="!x.my" class="flex-row-start margin-left margin-top one-show">
+					<view v-if="!x.my" class="flex-row-start margin-left margin-top one-show msgBlock">
 						<view class="chat-img flex-row-center">
 							<!-- <image style="height: 75rpx;width: 75rpx;" src="../../static/nana.jpg" mode="aspectFit"></image> -->
 						</view>
@@ -277,62 +277,5 @@
 </script>
 
 <style>
-	.bottom-dh-char {
-		background-color: #f9f9f9;
-		width: 750rpx;
-		height: 110rpx;
-	}
-
-	.center-box {
-		width: 720rpx;
-		padding-left: 25rpx;
-	}
-
-	.hui-box {
-		width: 750rpx;
-		height: 100%;
-
-	}
-
-	.dh-input {
-		width: 500rpx;
-		height: 65rpx;
-		border-radius: 30rpx;
-		padding-left: 15rpx;
-		background-color: #FFFFFF;
-	}
-
-	.box-normal {
-		width: 750rpx;
-		height: 180px;
-		background-color: #FFFFFF;
-	}
-
-	.tb-text view {
-		font-size: 65rpx;
-	}
-
-	.tb-text text {
-		font-size: 25rpx;
-		color: #737373;
-	}
-
-	.chat-img {
-		border-radius: 50%;
-		width: 100rpx;
-		height: 100rpx;
-		/* background-color: #f7f7f7; */
-    background-image: url(../../static/nana.jpg);
-    background-repeat: no-repeat;
-    background-size: 100rpx 100rpx;
-	}
-
-	.padding-chat {
-		padding: 17rpx 20rpx;
-	}
-
-	.tb-nv {
-		width: 50rpx;
-		height: 50rpx;
-	}
+	
 </style>

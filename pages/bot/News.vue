@@ -100,7 +100,6 @@
 		align-items: center;
 	}
 
-	,
 	.mytext {
 
 

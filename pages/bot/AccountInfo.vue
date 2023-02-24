@@ -23,48 +23,9 @@
 						<!-- <image class="chat-img margin-left" src="../../static/..." mode="aspectFill" ></image> -->
 					</view>
 					<!-- 机器人消息 -->
-					<view v-if="!x.my" class="flex-row-start margin-left margin-top one-show msgBlock">
-						<view class="chat-img flex-row-center">
-							<!-- <image style="height: 75rpx;width: 75rpx;" src="../../static/nana.jpg" mode="aspectFit"></image> -->
-						</view>
-						<view class="flex" style="width: 500rpx;">
-							<view class="margin-left padding-chat flex-column-start"
-								style="border-radius: 35rpx;background-color: #f9f9f9;">
-								<text style="word-break: break-all;">{{x.msg}}</text>
-								<!-- 消息模板 =>初次问候 -->
-								<!-- <view class="flex-column-start" v-if="x.type==1" style="color: #2fa39b;">
-									<text style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">你可以这样问我:</text>
-									<text @click="answer(index)" style="margin-top: 30rpx;"
-										v-for="(item,index) in x.questionList" :key="index">{{item}}</text>
-									<view class="flex-row-start  padding-top-sm">
-										<text class="my-neirong-sm">没有你要的答案?</text>
-										<text class="padding-left" style="color: #007AFF;">换一批</text>
-									</view>
-								</view> -->
-								<!-- 消息模板 =>多个答案 -->
-								<view class="flex-column-start" v-if="x.type==2" style="color: #2fa39b;">
-									<text style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">猜你想问:</text>
-									<!-- 连接服务器应该用item.id -->
-									<text @click="answer(index)" style="margin-top: 30rpx;"
-										v-for="(item,index) in x.questionList" :key="index">{{item}}</text>
-								</view>
-								<!-- 消息模板 => 无法回答-->
-								<!-- <view class="flex-column-start" v-if="x.type==0">
-									<text class="padding-top-sm" style="color: #2fa39b;">提交意见与反馈</text>
-									<text
-										style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">下面是一些常见问题,您可以点击对应的文字快速获取答案:</text>
-									<text @click="answer(index)" style="margin-top: 30rpx;color: #2fa39b;"
-										v-for="(item,index) in x.questionList" :key="index">{{item}}</text>
-									<view class="flex-row-start  padding-top-sm">
-										<text class="my-neirong-sm">没有你要的答案?</text>
-										<text class="padding-left" style="color: #1396c5;">换一批</text>
-									</view>
-								</view> -->
-
-
-							</view>
-						</view>
-					</view>
+          <!-- 目前看来还未启用多答案功能，所以暂时不传入index， -->
+          <botMsgBlock :x="x"/>
+          <!-- <botMsgBlock :answer="answer(index)" :x="x"/>-->
 				</view>
 
 
@@ -123,13 +84,16 @@
 </template>
 
 <script>
-	// rpx和px的比率
-	var l
+// rpx和px的比率
+import BotMsgBlock from "../template/BotMsgBlock.vue";
+
+  let l
 	// 可用窗口高度
-	var wh
+	let wh
 	// 顶部空盒子的高度
-	var mgUpHeight
+	let mgUpHeight
 	export default {
+    components: {BotMsgBlock},
 		onLoad() {
 			// 如果需要缓存消息缓存msgList即可
 			// 监听键盘拉起
@@ -152,7 +116,7 @@
 					}
 				}).exec();
 			})
-			var query = uni.getSystemInfoSync()
+			let query = uni.getSystemInfoSync()
 
 			l = query.screenWidth / 750
 			wh = query.windowHeight
@@ -168,6 +132,7 @@
 				// my->谁发的消息 msg->消息文本 type->客服消息模板类型 questionList->快速获取问题答案的问题列表
 				msgList: [{
 					my: false,
+          url: "",
 					msg: "你好我是nana请问有什么问题可以帮助您?",
 					type: 1,
 					questionList: [""]
@@ -272,9 +237,11 @@
 					url: "http://150.158.77.254:9991/bot/GetAccountInfo?msg=" + x,
 					success: ref => {
 						console.log(ref.data.data.msg)
+            console.log(this.$data.msgList)
 						this.msgList.push({
 							my: false,
 							msg: ref.data.data.msg,
+              url: ref.data.data.url,
 							type: -1
 						})
 					}
@@ -333,6 +300,3 @@
 	}
 </script>
 
-<style>
-
-</style>

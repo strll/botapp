@@ -23,28 +23,7 @@
 						<!-- <image class="chat-img margin-left" src="../../static/..." mode="aspectFill" ></image> -->
 					</view>
 					<!-- 机器人消息 -->
-					<view v-if="!x.my" class="flex-row-start margin-left margin-top one-show msgBlock">
-						<view class="chat-img flex-row-center">
-							<!-- <image style="height: 75rpx;width: 75rpx;" src="../../static/nana.jpg" mode="aspectFit"></image> -->
-						</view>
-						<view class="flex" style="width: 500rpx;">
-							<view class="margin-left padding-chat flex-column-start"
-								style="border-radius: 35rpx;background-color: #f9f9f9;">
-								<text style="word-break: break-all;">{{x.msg}}</text>
-
-								<!-- 消息模板 =>多个答案 -->
-								<view class="flex-column-start" v-if="x.type==2" style="color: #2fa39b;">
-									<text style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">猜你想问:</text>
-									<!-- 连接服务器应该用item.id -->
-									<text @click="answer(index)" style="margin-top: 30rpx;"
-										v-for="(item,index) in x.questionList" :key="index">{{item}}</text>
-								</view>
-
-
-
-							</view>
-						</view>
-					</view>
+          <botMsgBlock :x="x"/>
 				</view>
 
 
@@ -67,12 +46,15 @@
 
 <script>
 	// rpx和px的比率
-	var l
+	import BotMsgBlock from "../template/BotMsgBlock.vue";
+
+  var l
 	// 可用窗口高度
 	var wh
 	// 顶部空盒子的高度
 	var mgUpHeight
 	export default {
+    components: {BotMsgBlock},
 		onLoad() {
 			this.getmsg();
 			// 如果需要缓存消息缓存msgList即可

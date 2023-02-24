@@ -13,15 +13,7 @@
 				<view class="flex-column-start" v-for="(x,i) in msgList" :key="i">
 
 					<!-- 用户消息 头像可选加入-->
-					<view v-if="x.my" class="flex justify-end padding-right one-show  align-start  padding-top">
-						<!-- 	<image v-if="!x.my" class="chat-img" src="../../static/..." mode="aspectFill" ></image> -->
-						<view class="flex justify-end" style="width: 400rpx;">
-							<view class="margin-left padding-chat bg-cyan" style="border-radius: 35rpx;">
-								<text style="word-break: break-all;">{{x.msg}}</text>
-							</view>
-						</view>
-						<!-- <image class="chat-img margin-left" src="../../static/..." mode="aspectFill" ></image> -->
-					</view>
+          <userMsgBlock :x="x" v-if="x.my"/>
 					<!-- 机器人消息 -->
           <botMsgBlock :x="x" v-if="!x.my"/>
 				</view>
@@ -47,6 +39,7 @@
 <script>
 	// rpx和px的比率
 	import BotMsgBlock from "../template/BotMsgBlock.vue";
+  import UserMsgBlock from "./UserMsgBlock.vue";
 
   var l
 	// 可用窗口高度
@@ -54,7 +47,7 @@
 	// 顶部空盒子的高度
 	var mgUpHeight
 	export default {
-    components: {BotMsgBlock},
+    components: {UserMsgBlock, BotMsgBlock},
 		onLoad() {
 			this.getmsg();
 			// 如果需要缓存消息缓存msgList即可

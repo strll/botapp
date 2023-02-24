@@ -23,7 +23,7 @@
 						<!-- <image class="chat-img margin-left" src="../../static/..." mode="aspectFill" ></image> -->
 					</view>
 					<!-- 机器人消息 -->
-          <botMsgBlock :x="x"/>
+          <botMsgBlock :x="x" v-if="!x.my"/>
 				</view>
 
 
@@ -223,6 +223,7 @@
 						this.msgList.push({
 							my: false,
 							msg: ref.data.data.msg,
+              url: ref.data.data.url,
 							type: -1
 						})
 					}

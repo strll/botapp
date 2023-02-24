@@ -65,3 +65,9 @@
   width: 50rpx;
   height: 50rpx;
 }
+.imageMsg{
+  margin: 0;
+}
+.imageMsg>img{
+  max-width: 100%;
+}

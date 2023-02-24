@@ -1,12 +1,12 @@
 <template>
-  <view v-if="!x.my" class="flex-row-start margin-left margin-top one-show msgBlock">
+  <view class="flex-row-start margin-left margin-top one-show msgBlock">
     <view class="chat-img flex-row-center">
       <!-- <image style="height: 75rpx;width: 75rpx;" src="../../static/nana.jpg" mode="aspectFit"></image> -->
     </view>
     <view class="flex" style="width: 500rpx;">
       <view class="margin-left padding-chat flex-column-start"
             style="border-radius: 35rpx;background-color: #f9f9f9;">
-        <text style="word-break: break-all;">{{x.msg}}</text>
+        <text style="word-break: break-all;">{{ x.msg }}</text>
         <!-- 消息模板 =>初次问候 -->
         <!-- <view class="flex-column-start" v-if="x.type==1" style="color: #2fa39b;">
           <text style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">你可以这样问我:</text>
@@ -22,8 +22,12 @@
           <text style="color: #838383;font-size: 22rpx;margin-top: 15rpx;">猜你想问:</text>
           <!-- 连接服务器应该用item.id -->
           <text @click="answer" style="margin-top: 30rpx;"
-                v-for="(item,index) in x.questionList" :key="index">{{item}}
+                v-for="(item,index) in x.questionList" :key="index">{{ item }}
           </text>
+        </view>
+        <view class="margin-left padding-chat flex-column-start imageMsg"
+              style="border-radius: 35rpx;background-color: #f9f9f9;" v-if="x.url!==''">
+          <img v-if="x.url!==''" v-bind:src="x.url" alt="图片">
         </view>
         <!-- 消息模板 => 无法回答-->
         <!-- <view class="flex-column-start" v-if="x.type==0">

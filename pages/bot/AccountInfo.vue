@@ -76,7 +76,7 @@
 <script>
 // rpx和px的比率
 import BotMsgBlock from "../template/BotMsgBlock.vue";
-import UserMsgBlock from "./UserMsgBlock.vue";
+import UserMsgBlock from "../template/UserMsgBlock.vue";
 
 let l
 // 可用窗口高度

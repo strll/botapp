@@ -126,11 +126,23 @@ export default {
         url: "",
         msg: "你好我是nana请问有什么问题可以帮助您?",
         type: 1,
-        questionList: [""]
+        questionList: [""],
+        firstMsg:true//标识是否为一组消息的第一条信息，只有第一条信息会显示头像
       }],
       msg: "",
       go: 0,
       srcollHeight: 0
+    }
+  },
+  watch:{
+    msgList:{
+      handler:function (obj){
+        console.log(obj);
+        for (let i = 1; i < obj.length; i++) {
+          obj[i].firstMsg = obj[i - 1].my !== obj[i].my;
+        }
+      },
+      deep:true
     }
   },
   onBackPress(event) {
@@ -227,7 +239,6 @@ export default {
         url: "http://150.158.77.254:9991/bot/GetAccountInfo?msg=" + x,
         success: ref => {
           console.log(ref.data.data.msg)
-          console.log(this.$data.msgList)
           this.msgList.push({
             my: false,
             msg: ref.data.data.msg,

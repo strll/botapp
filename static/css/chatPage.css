@@ -8,13 +8,16 @@
 /* nana头像相关css */
 .chat-img {
   border-radius: 50%;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   /* margin-top: 10rpx; */
   /* background-color: #f7f7f7; */
   background-image: url(./static/nana.jpg);
   background-repeat: no-repeat;
-  background-size: 100rpx 100rpx;
+  background-size: 80rpx 80rpx;
+}
+.picHidden{
+  visibility: hidden;
 }
 
 .bottom-dh-char {

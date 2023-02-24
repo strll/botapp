@@ -90,7 +90,8 @@
 					my: false,
 					msg: "你好这是历史上的今天",
 					type: 1,
-					questionList: [""]
+					questionList: [""],
+          firstMsg:true
 				}],
 				msg: "",
 				go: 0,
@@ -119,10 +120,10 @@
 
 					}
 				})
-				this.msgList.push({
-					"msg": this.msg,
-					"my": true
-				})
+				// this.msgList.push({
+				// 	"msg": this.msg,
+				// 	"my": true
+				// })
 
 			},
 

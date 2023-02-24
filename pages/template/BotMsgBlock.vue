@@ -26,8 +26,8 @@
           </text>
         </view>
         <view class="margin-left padding-chat flex-column-start imageMsg"
-              style="border-radius: 35rpx;background-color: #f9f9f9;" v-if="x.url!==''">
-          <img v-if="x.url!==''" v-bind:src="x.url" alt="图片">
+              style="border-radius: 35rpx;background-color: #f9f9f9;" v-if="urlCheck(x.url)">
+          <img v-if="urlCheck(x.url)" v-bind:src="x.url" alt="图片">
         </view>
         <!-- 消息模板 => 无法回答-->
         <!-- <view class="flex-column-start" v-if="x.type==0">
@@ -53,6 +53,15 @@ export default {
   props: {
     answer: {},
     x: {}
+  },
+  methods:{
+    urlCheck(obj){
+      if (typeof(obj) == "undefined")
+        return false;
+      if (!obj && typeof(obj)!="undefined" && obj!==0)
+        return false;
+      return obj.length !== 0;
+    }
   }
 }
 </script>

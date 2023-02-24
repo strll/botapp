@@ -39,7 +39,7 @@
 <script>
 	// rpx和px的比率
 	import BotMsgBlock from "../template/BotMsgBlock.vue";
-  import UserMsgBlock from "./UserMsgBlock.vue";
+  import UserMsgBlock from "../template/UserMsgBlock.vue";
 
   var l
 	// 可用窗口高度
@@ -104,7 +104,6 @@
 			return true;
 		},
 		methods: {
-
 			getmsg() {
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/GetHistoryTody",
@@ -117,7 +116,6 @@
 								type: -1
 							})
 						}
-
 
 					}
 				})

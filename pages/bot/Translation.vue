@@ -2,12 +2,12 @@
 	<view>
 		<view class="searchView">
 			<div class="searchBox">
-				<input v-model="msg" placeholder="请输入查询的单词">
+				<input v-model="msg" placeholder="请输入查询的单词" @confirm="getmsg">
 				<button type="primary" @click="getmsg()">查询</button>
 			</div>
 		</view>
-		<main>
-			{{remsg}}
+		<main v-html="remsg">
+
 		</main>
 	</view>
 </template>
@@ -26,6 +26,7 @@
 					url: "http://150.158.77.254:9991/bot/GetTranslation?msg=" + this.msg,
 					success: ref => {
 						this.remsg = ref.data.data
+            this.remsg=this.remsg.replaceAll("\n","<br>")
 					}
 				})
 			},

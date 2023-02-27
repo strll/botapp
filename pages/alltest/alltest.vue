@@ -155,6 +155,7 @@
 			padding: 0;
 			display: flex;
 			flex-direction: column;
+      font-size: 18px;
 
 			li {
 				height: 4em;

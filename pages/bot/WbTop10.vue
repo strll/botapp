@@ -41,11 +41,11 @@
 	import BotMsgBlock from "../template/BotMsgBlock.vue";
   import UserMsgBlock from "../template/UserMsgBlock.vue";
 
-  var l
+  let l
 	// 可用窗口高度
-	var wh
+	let wh
 	// 顶部空盒子的高度
-	var mgUpHeight
+	let mgUpHeight
 	export default {
     components: {UserMsgBlock, BotMsgBlock},
 		onLoad() {
@@ -89,13 +89,25 @@
 					my: false,
 					msg: "你好这是微博热搜",
 					type: 1,
-					questionList: [""]
+					questionList: [""],
+          firstMsg:true
 				}],
 				msg: "",
 				go: 0,
 				srcollHeight: 0
 			}
 		},
+    watch:{
+      msgList:{
+        handler:function (obj){
+          console.log(obj);
+          for (let i = 1; i < obj.length; i++) {
+            obj[i].firstMsg = obj[i - 1].my !== obj[i].my;
+          }
+        },
+        deep:true
+      }
+    },
 		onBackPress(event) {
 			uni.navigateTo({
 				url: "/pages/alltest/alltest"
@@ -103,7 +115,6 @@
 			return true;
 		},
 		methods: {
-
 			getmsg() {
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/GetWbTop10",
@@ -120,10 +131,10 @@
 
 					}
 				})
-				this.msgList.push({
-					"msg": this.msg,
-					"my": true
-				})
+				// this.msgList.push({
+				// 	"msg": this.msg,
+				// 	"my": true
+				// })
 
 			},
 

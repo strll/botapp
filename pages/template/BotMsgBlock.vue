@@ -1,6 +1,6 @@
 <template>
   <view class="flex-row-start margin-left margin-top one-show msgBlock">
-    <view class="chat-img flex-row-center">
+    <view class="chat-img flex-row-center" v-bind:class="{'picHidden':!x.firstMsg}">
       <!-- <image style="height: 75rpx;width: 75rpx;" src="../../static/nana.jpg" mode="aspectFit"></image> -->
     </view>
     <view class="flex" style="width: 500rpx;">

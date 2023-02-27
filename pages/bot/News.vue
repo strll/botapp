@@ -4,22 +4,13 @@
 			<image :src="newstitle.url"></image>
 		</view>
 		<view v-text="newstitle.msg" class="mytext"></view>
-
-
 		<view v-for="objs in list">
 			<!-- 	<view v-text="objs.title" class="mytext"></view> -->
-
 			<u--text prefixIcon="zhihu" iconStyle="font-size: 19px" :text="objs.title"></u--text>
-
 			<view v-for=" obj in objs.img" class="myimg">
 				<u--image :showLoading="true" :src="obj"></u--image>
-
 			</view>
-
-
 		</view>
-
-
 	</view>
 </template>
 
@@ -32,7 +23,6 @@
 					url: ""
 				},
 				list: []
-
 			}
 		},
 		onLoad() {
@@ -60,21 +50,7 @@
 				}
 				this.list = list
 			},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			getmsg() {
+      getmsg() {
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/GetNews",
 					success: ref => {

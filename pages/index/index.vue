@@ -58,7 +58,7 @@
 					});
 				} else {
 					uni.setStorageSync("login", false)
-				};
+				}
 			},
 			async login() {
 				uni.request({
@@ -89,7 +89,12 @@
 
 					},
 					fail() {
-
+            uni.setStorageSync("login", false)
+            uni.showModal({
+              showCancel: false,
+              title: '提示',
+              content: '网络已断开或服务器无响应，请稍后再试',
+            });
 					}
 				})
 			},

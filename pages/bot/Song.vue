@@ -3,7 +3,7 @@
 
 		<view class="searchView">
 			<div class="searchBox">
-				<input v-model="input" placeholder="请输入你要查的歌曲">
+				<input v-model="input" placeholder="请输入你要查的歌曲" @confirm="getmsg">
 				<button type="primary" @click="get()">查询</button>
 			</div>
 		</view>
@@ -45,10 +45,10 @@
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/GetSong?song=" + this.input,
 					success: ref => {
-						console.log(ref.data.data.data),
-							this.msg = ref.data.data.data.url,
-							this.pic = ref.data.data.data.cover,
-							console.log(this.pic),
+						console.log(ref.data.data.data)
+							this.msg = ref.data.data.data.url
+							this.pic = ref.data.data.data.cover
+							console.log(this.pic)
 							this.songer = ref.data.data.data.singer
 					}
 				})

@@ -1,11 +1,11 @@
 <template>
-	<view>
+	<view class="eatTodayBox">
 		<div class="center">
 			<button type="primary" @click="get()">Roll!</button>
 		</div>
 		<view v-text="showmsg"></view>
 
-		<image :src="myurl"></image>
+		<img :src="myurl" :alt="msg">
 
 	</view>
 </template>
@@ -25,9 +25,9 @@
 			//        "qq": "†穆尔Moore†(2590892290)",
 			//        "url": "http://43.142.125.197:9000/bot/2023/01/02/2b0fdf77d3ce42f1867669f299fc032f",
 			async get() {
-				this.msg = "",
-					this.qq = "",
-					this.myurl = "",
+				this.msg = ""
+					this.qq = ""
+					this.myurl = ""
 					this.showmsg = ""
 				uni.request({
 					url: "http://150.158.77.254:9991/bot/Eattoday",
@@ -56,4 +56,14 @@
 		display: flex;
 		justify-content: center;
 	}
+  .eatTodayBox{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .eatTodayBox>*{
+    margin-top: 10rpx;
+  }
+  .eatTodayBox>img{
+    width: 100%;
+  }
 </style>
